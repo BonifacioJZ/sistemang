@@ -1,0 +1,23 @@
+version: "3.11"
+services:
+  db:
+    container_name: java_db
+    image: postgres:bookworm
+    restart: always
+    hostname: java_db
+    ports:
+      - 9090:5432
+    environment:
+      POSTGRES_USER: boni
+      POSTGRES_PASSWORD: Ghost6699
+      POSTGRES_DB: test
+    volumes:
+      - ~Documents/docker-vol/postgres-volume2/data1:/var/lib/postgres/data/
+  java_app:
+    container_name: java_app
+    image: pee-java_app:1.0.0
+    build: .
+    ports:
+      - 8081:8080
+    depends_on:
+      - db
