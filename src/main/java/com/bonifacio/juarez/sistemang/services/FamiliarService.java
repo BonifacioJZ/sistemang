@@ -8,10 +8,5 @@ import org.springframework.stereotype.Component;
 @Component
 public class FamiliarService implements IFamiliarService{
 
-    private final FamiliarRepository familiarRepository;
-    @Autowired
-    public FamiliarService(FamiliarRepository familiarRepository){
-        this.familiarRepository = familiarRepository;
-    }
 
 }

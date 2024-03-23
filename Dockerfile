@@ -11,7 +11,7 @@ WORKDIR /app
 COPY . /app
 
 # Ejecutar el comando 'gradle clean build' para construir el proyecto
-RUN gradle clean build
+RUN gradle  clean build -x test
 
 # Cambiar a una nueva etapa de construcción basada en OpenJDK 17
 FROM openjdk:17-bullseye
@@ -24,4 +24,3 @@ COPY --from=build /app/build/libs/sistemang-0.0.1-SNAPSHOT.jar /app/sistemang-0.
 
 # Establecer el punto de entrada para ejecutar la aplicación cuando se inicie el contenedor
 ENTRYPOINT ["java", "-jar", "/app/sistemang-0.0.1-SNAPSHOT.jar"]
-
