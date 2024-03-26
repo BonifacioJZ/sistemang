@@ -6,7 +6,7 @@ services:
     restart: always
     hostname: java_db
     ports:
-      - 9090:5432
+      - ${PORT_DB}:5432
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -18,7 +18,7 @@ services:
     image: pee-java_app:1.0.0
     build: .
     ports:
-      - 8081:8080
+      - ${PORT_HOST}:8080
     environment:
       - DATABASE_URL=${DB_URL}
       - DATABASE_USERNAME=${DB_USERNAME}

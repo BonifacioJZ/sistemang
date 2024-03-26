@@ -17,7 +17,7 @@ public class Patient  extends Person{
                 },
                 fetch = FetchType.LAZY)
     @JoinTable(name = "patient_familiar",
-            joinColumns = {@JoinColumn(name = "fk_patient")},
+            joinColumns = {@JoinColumn(name = "fk_patient"),},
             inverseJoinColumns = {@JoinColumn(name = "fk_familiar")}
     )
     @JsonIgnore

@@ -1,9 +1,11 @@
 package com.bonifacio.juarez.sistemang.services;
 
+import com.bonifacio.juarez.sistemang.dtos.PatientInDto;
+import com.bonifacio.juarez.sistemang.dtos.PatientOutDto;
 import com.bonifacio.juarez.sistemang.entities.Patient;
-import org.springframework.data.repository.CrudRepository;
-
-import java.util.UUID;
 
 public interface IPatientService {
+  Iterable<PatientOutDto> getAllPatients();
+
+  Patient savePatient(PatientInDto patientInDto);
 }
