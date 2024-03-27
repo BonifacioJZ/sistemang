@@ -8,4 +8,7 @@ public interface IPatientService {
   Iterable<PatientOutDto> getAllPatients();
 
   Patient savePatient(PatientInDto patientInDto);
+
+  PatientOutDto getPatientByCurp(String curp);
+
 }

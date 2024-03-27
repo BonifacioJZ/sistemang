@@ -2,6 +2,7 @@ package com.bonifacio.juarez.sistemang.services;
 
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -37,7 +38,19 @@ public class PatientService implements IPatientService {
   @Override
   public Patient savePatient(PatientInDto patientInDto) {
     var patientIn = patientMapper.PatientInDtotoPatient(patientInDto);
-
+    patientIn.setCurp(patientIn.getCurp().toUpperCase());
     return patientRepository.save(patientIn);
   }
+
+  @Override
+  public PatientOutDto getPatientByCurp(String curp) {
+    // TODO Auto-generated method stub
+    if (StringUtils.isEmpty(curp)) {
+      return null;
+    }
+    var patient = patientRepository.findByCurp(curp);
+    var out = patientMapper.PatientToPatientOutDto(patient);
+    return out;
+  }
+
 }

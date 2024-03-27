@@ -13,29 +13,35 @@ import java.util.Set;
 @Entity
 @Table(name = "relatives")
 public class Familiar extends Person {
-    @Size(max = 100)
-    @NotNull
-    @Column
-    private String Relationship;
-    @ManyToMany(mappedBy = "familiars")
-    private Set<Patient> patients;
-    public Familiar( String name, String lastName, String phone, String email, String colony, String city, Date birthday, String address, String curp) {
-        super( name, lastName, phone, email, colony, city, birthday, address, curp);
-    }
+  @Size(max = 100)
+  @NotNull
+  @Column
+  private String Relationship;
+  @ManyToMany(mappedBy = "familiars")
+  private Set<Patient> patients;
 
-    public String getRelationship() {
-        return Relationship;
-    }
+  public Familiar(String name, String lastName, String phone, String email, String colony, String city, Date birthday,
+      String address, String curp) {
+    super(name, lastName, phone, email, colony, city, birthday, address, curp);
+  }
 
-    public void setRelationship(String relationship) {
-        Relationship = relationship;
-    }
+  public Familiar() {
+    super();
+  }
 
-    public Set<Patient> getPatients() {
-        return patients;
-    }
+  public String getRelationship() {
+    return Relationship;
+  }
 
-    public void setPatients(Set<Patient> patients) {
-        this.patients = patients;
-    }
+  public void setRelationship(String relationship) {
+    Relationship = relationship;
+  }
+
+  public Set<Patient> getPatients() {
+    return patients;
+  }
+
+  public void setPatients(Set<Patient> patients) {
+    this.patients = patients;
+  }
 }
