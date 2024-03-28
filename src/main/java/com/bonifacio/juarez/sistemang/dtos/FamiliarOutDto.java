@@ -20,10 +20,8 @@ public class FamiliarOutDto {
   private final String curp;
   private final Date birthday;
   private final String relationshp;
-  private final ArrayList<PatientOutDto> patients;
-
   public FamiliarOutDto(UUID id, String name, String lastName, String phone, String email, String colony, String city,
-      String address, String curp, Date birthday, String relationshp, ArrayList<PatientOutDto> patients) {
+      String address, String curp, Date birthday, String relationshp) {
     this.id = id;
     this.name = name;
     this.lastName = lastName;
@@ -35,7 +33,6 @@ public class FamiliarOutDto {
     this.curp = curp;
     this.birthday = birthday;
     this.relationshp = relationshp;
-    this.patients = patients;
   }
 
   public UUID getId() {
@@ -82,7 +79,4 @@ public class FamiliarOutDto {
     return relationshp;
   }
 
-  public ArrayList<PatientOutDto> getPatients() {
-    return patients;
-  }
 }

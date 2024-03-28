@@ -44,4 +44,8 @@ public class Familiar extends Person {
   public void setPatients(Set<Patient> patients) {
     this.patients = patients;
   }
+
+  public void addPatient(Patient patient) {
+    patients.add(patient);
+  }
 }

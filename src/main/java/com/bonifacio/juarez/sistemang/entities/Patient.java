@@ -34,4 +34,8 @@ public class Patient extends Person {
   public void setFamiliars(Set<Familiar> familiars) {
     this.familiars = familiars;
   }
+
+  public void addFamiliar(Familiar familiar) {
+    familiars.add(familiar);
+  }
 }

@@ -103,4 +103,8 @@ public class FamiliarIntDto {
   public String getRelationship() {
     return relationship;
   }
+
+  public String getPatient_curp() {
+    return patient_curp;
+  }
 }
