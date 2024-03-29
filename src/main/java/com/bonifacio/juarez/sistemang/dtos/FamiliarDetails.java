@@ -15,10 +15,9 @@ public class FamiliarDetails {
     private final String address;
     private final String curp;
     private final Date birthday;
-    private final String relationshp;
     private  final Set<PatientOutDto> patients;
 
-    public FamiliarDetails(UUID id, String name, String lastName, String phone, String email, String colony, String city, String address, String curp, Date birthday, String relationshp, Set<PatientOutDto> patients) {
+    public FamiliarDetails(UUID id, String name, String lastName, String phone, String email, String colony, String city, String address, String curp, Date birthday, Set<PatientOutDto> patients) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -29,7 +28,6 @@ public class FamiliarDetails {
         this.address = address;
         this.curp = curp;
         this.birthday = birthday;
-        this.relationshp = relationshp;
         this.patients = patients;
     }
 
@@ -73,9 +71,6 @@ public class FamiliarDetails {
         return birthday;
     }
 
-    public String getRelationshp() {
-        return relationshp;
-    }
 
     public Set<PatientOutDto> getPatients() {
         return patients;

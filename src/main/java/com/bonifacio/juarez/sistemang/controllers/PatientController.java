@@ -1,5 +1,6 @@
 package com.bonifacio.juarez.sistemang.controllers;
 
+import com.bonifacio.juarez.sistemang.dtos.AddFamiliar;
 import com.bonifacio.juarez.sistemang.dtos.PatientInDto;
 import com.bonifacio.juarez.sistemang.entities.Patient;
 import com.bonifacio.juarez.sistemang.services.IPatientService;
@@ -60,5 +61,16 @@ public class PatientController {
       return new ResponseEntity<>("el usuario con la curp " + curp + " no existe", HttpStatus.NOT_FOUND);
     }
     return new ResponseEntity<>(patient, HttpStatus.OK);
+  }
+  @RequestMapping(method = RequestMethod.POST,value = {"add/","add"})
+  public ResponseEntity<?> addFamiliarToPatient(@Valid @RequestBody AddFamiliar addFamiliar,BindingResult result){
+    if(result.hasErrors()){
+      return new ResponseEntity<>(result.getAllErrors(),HttpStatus.BAD_REQUEST);
+    }
+    var patient = patientservice.addFamiliarToPatient(addFamiliar);
+    if(patient==null){
+      return new ResponseEntity<>("Error al guardar la informacion",HttpStatus.BAD_REQUEST);
+    }
+    return new ResponseEntity<>(patient,HttpStatus.OK);
   }
 }

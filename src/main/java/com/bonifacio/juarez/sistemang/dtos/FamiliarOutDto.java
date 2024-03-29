@@ -19,9 +19,8 @@ public class FamiliarOutDto {
   private final String address;
   private final String curp;
   private final Date birthday;
-  private final String relationshp;
   public FamiliarOutDto(UUID id, String name, String lastName, String phone, String email, String colony, String city,
-      String address, String curp, Date birthday, String relationshp) {
+      String address, String curp, Date birthday) {
     this.id = id;
     this.name = name;
     this.lastName = lastName;
@@ -32,7 +31,6 @@ public class FamiliarOutDto {
     this.address = address;
     this.curp = curp;
     this.birthday = birthday;
-    this.relationshp = relationshp;
   }
 
   public UUID getId() {
@@ -74,9 +72,4 @@ public class FamiliarOutDto {
   public Date getBirthday() {
     return birthday;
   }
-
-  public String getRelationshp() {
-    return relationshp;
-  }
-
 }

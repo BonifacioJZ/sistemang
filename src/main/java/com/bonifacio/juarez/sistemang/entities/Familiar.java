@@ -14,30 +14,18 @@ import java.util.Set;
 @Entity
 @Table(name = "relatives")
 public class Familiar extends Person {
-  @Size(max = 100)
-  @NotNull
-  @Column
-  private String relationship;
   @ManyToMany(mappedBy = "familiars")
   private Set<Patient> patients = new HashSet<>();
 
   public Familiar(String name, String lastName, String phone, String email, String colony, String city, Date birthday,
-      String address, String curp, String relationship) {
+      String address, String curp) {
     super(name, lastName, phone, email, colony, city, birthday, address, curp);
-    this.relationship = relationship;
   }
 
   public Familiar() {
     super();
   }
 
-  public String getRelationship() {
-    return relationship;
-  }
-
-  public void setRelationship(String relationship) {
-    this.relationship = relationship;
-  }
 
   public Set<Patient> getPatients() {
     return patients;

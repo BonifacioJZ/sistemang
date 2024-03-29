@@ -36,17 +36,13 @@ public class FamiliarIntDto {
   @NotBlank
   @NotEmpty
   private final String curp;
-  @Size(max = 100)
-  @NotBlank
-  @NotEmpty
-  private final String relationship;
   @NotEmpty
   @NotBlank
   @Size(min = 18, max = 18)
   private final String patient_curp;
 
   public FamiliarIntDto(String name, String lastName, String phone, String email, String colony, String city,
-      Date birthday, String address, String curp, String relationship, String patient_curp) {
+      Date birthday, String address, String curp, String patient_curp) {
     this.name = name;
     this.lastName = lastName;
     if (StringUtils.isAllEmpty(phone)) {
@@ -60,7 +56,6 @@ public class FamiliarIntDto {
     this.birthday = birthday;
     this.address = address;
     this.curp = curp;
-    this.relationship = relationship;
     this.patient_curp = patient_curp;
   }
 
@@ -98,10 +93,6 @@ public class FamiliarIntDto {
 
   public String getCurp() {
     return curp;
-  }
-
-  public String getRelationship() {
-    return relationship;
   }
 
   public String getPatient_curp() {

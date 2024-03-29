@@ -37,11 +37,12 @@ public class PatientInDto {
   @NotEmpty
   private final String curp;
 
+
   public PatientInDto(String name, String lastName, String phone, String email, String colony, String city,
       Date birthday, String address, String curp) {
     this.name = name;
     this.lastName = lastName;
-    if (StringUtils.isAllEmpty(phone)) {
+    if (StringUtils.isEmpty(phone)) {
       this.phone = "000-00-00-000";
     } else {
       this.phone = phone;

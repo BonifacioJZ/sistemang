@@ -21,7 +21,7 @@ public class FamiliarMapper implements IFamiliarMapper {
 
     FamiliarOutDto out = new FamiliarOutDto(familiar.getId(), familiar.getName(), familiar.getLastName(),
         familiar.getPhone(), familiar.getEmail(), familiar.getColony(), familiar.getCity(),
-        familiar.getAddress(), familiar.getCurp(), familiar.getBirthday(), familiar.getRelationship());
+        familiar.getAddress(), familiar.getCurp(), familiar.getBirthday());
 
     return out;
   }
@@ -33,7 +33,7 @@ public class FamiliarMapper implements IFamiliarMapper {
     Familiar out = new Familiar(familiarIntDto.getName(), familiarIntDto.getLastName(),
         familiarIntDto.getPhone(), familiarIntDto.getEmail(), familiarIntDto.getColony(),
         familiarIntDto.getCity(), familiarIntDto.getBirthday(), familiarIntDto.getAddress(),
-        familiarIntDto.getCurp().toUpperCase(), familiarIntDto.getRelationship());
+        familiarIntDto.getCurp().toUpperCase());
     return out;
   }
 
@@ -44,7 +44,7 @@ public class FamiliarMapper implements IFamiliarMapper {
     }
     FamiliarDetails out = new FamiliarDetails(familiar.getId(),familiar.getName(),familiar.getLastName(),
             familiar.getPhone(),familiar.getEmail(),familiar.getColony(),familiar.getCity(),
-            familiar.getAddress(),familiar.getAddress(),familiar.getBirthday(),familiar.getRelationship(),
+            familiar.getAddress(),familiar.getAddress(),familiar.getBirthday(),
             patients);
     return out;
   }
