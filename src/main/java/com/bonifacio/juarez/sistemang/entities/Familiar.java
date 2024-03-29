@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,13 +17,14 @@ public class Familiar extends Person {
   @Size(max = 100)
   @NotNull
   @Column
-  private String Relationship;
+  private String relationship;
   @ManyToMany(mappedBy = "familiars")
-  private Set<Patient> patients;
+  private Set<Patient> patients = new HashSet<>();
 
   public Familiar(String name, String lastName, String phone, String email, String colony, String city, Date birthday,
-      String address, String curp) {
+      String address, String curp, String relationship) {
     super(name, lastName, phone, email, colony, city, birthday, address, curp);
+    this.relationship = relationship;
   }
 
   public Familiar() {
@@ -30,11 +32,11 @@ public class Familiar extends Person {
   }
 
   public String getRelationship() {
-    return Relationship;
+    return relationship;
   }
 
   public void setRelationship(String relationship) {
-    Relationship = relationship;
+    this.relationship = relationship;
   }
 
   public Set<Patient> getPatients() {
@@ -46,6 +48,8 @@ public class Familiar extends Person {
   }
 
   public void addPatient(Patient patient) {
+
     patients.add(patient);
+    patient.getFamiliars().add(this);
   }
 }

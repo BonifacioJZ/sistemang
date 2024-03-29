@@ -1,7 +1,11 @@
 package com.bonifacio.juarez.sistemang.mappers;
 
+import java.util.Set;
+
 import org.springframework.stereotype.Component;
 
+import com.bonifacio.juarez.sistemang.dtos.FamiliarOutDto;
+import com.bonifacio.juarez.sistemang.dtos.PatientDetails;
 import com.bonifacio.juarez.sistemang.dtos.PatientInDto;
 import com.bonifacio.juarez.sistemang.dtos.PatientOutDto;
 import com.bonifacio.juarez.sistemang.entities.Patient;
@@ -31,6 +35,17 @@ public class PatientMapper implements IPatientMapper {
         patient.getEmail(), patient.getColony(), patient.getCity(), patient.getBirthday(),
         patient.getAddress(), patient.getCurp());
     return patientOutDto;
+  }
+
+  @Override
+  public PatientDetails patientToPatientDetails(Patient patient, Set<FamiliarOutDto> familiars) {
+    if (patient == null)
+      return null;
+    var out = new PatientDetails(patient.getId(), patient.getName(),
+        patient.getLastName(), patient.getPhone(), patient.getEmail(), patient.getColony(),
+        patient.getAddress(), patient.getCurp(), patient.getBirthday(), familiars);
+
+    return out;
   }
 
 }

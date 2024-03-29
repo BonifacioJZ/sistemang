@@ -3,10 +3,7 @@ package com.bonifacio.juarez.sistemang.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.bonifacio.juarez.sistemang.dtos.FamiliarIntDto;
 import com.bonifacio.juarez.sistemang.services.IFamiliarService;
@@ -47,6 +44,15 @@ public class FamiliarController {
       return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
     return new ResponseEntity<>(familiar, HttpStatus.CREATED);
+  }
+  @RequestMapping(method = RequestMethod.GET,name="get familiar by curp", value = {"{curp}","{curp}/"})
+  @Transactional
+  public ResponseEntity<?> show(@PathVariable String curp){
+    var familiar = familiarService.getFamiliarByCurp(curp);
+    if(familiar == null){
+      return new ResponseEntity<>("La curp asociada no esta registrada",HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(familiar,HttpStatus.OK);
   }
 
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,8 +17,7 @@ public class Patient extends Person {
   @JoinTable(name = "patient_familiar", joinColumns = { @JoinColumn(name = "fk_patient"), }, inverseJoinColumns = {
       @JoinColumn(name = "fk_familiar") })
   @JsonIgnore
-  private Set<Familiar> familiars;
-
+  private Set<Familiar> familiars = new HashSet<>();
   public Patient(String name, String lastName, String phone, String email, String colony, String city, Date birthday,
       String address, String curp) {
     super(name, lastName, phone, email, colony, city, birthday, address, curp);
@@ -37,5 +37,6 @@ public class Patient extends Person {
 
   public void addFamiliar(Familiar familiar) {
     familiars.add(familiar);
+    familiar.getPatients().add(this);
   }
 }

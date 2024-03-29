@@ -1,5 +1,6 @@
 package com.bonifacio.juarez.sistemang.services;
 
+import com.bonifacio.juarez.sistemang.dtos.PatientDetails;
 import com.bonifacio.juarez.sistemang.dtos.PatientInDto;
 import com.bonifacio.juarez.sistemang.dtos.PatientOutDto;
 import com.bonifacio.juarez.sistemang.entities.Patient;
@@ -9,6 +10,6 @@ public interface IPatientService {
 
   Patient savePatient(PatientInDto patientInDto);
 
-  PatientOutDto getPatientByCurp(String curp);
+  PatientDetails getPatientByCurp(String curp);
 
 }
